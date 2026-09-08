@@ -1,0 +1,49 @@
+{
+    "name": "wp-boilerplate",
+    "version": "1.0.0",
+    "description": "Starter boilerplate for a WordPress plugin with a React admin dashboard.",
+    "license": "GPL-3.0-only",
+    "main": "src/index.js",
+    "prettier": "@wordpress/prettier-config",
+    "scripts": {
+        "dev": "concurrently \"npm run start\" \"gulp watch\"",
+        "start": "webpack --watch",
+        "lint": "eslint src --ext .js",
+        "build": "gulp build && npm run build-cross",
+        "build-cross": "cross-env NODE_ENV=production webpack --config ./webpack.production.config.js",
+        "make-pot": "wp i18n make-pot . languages/wp-boilerplate.pot --exclude=src,build,node_modules",
+        "package": "npm run build && npm run make-pot && gulp package"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.26.0",
+        "@babel/eslint-parser": "^7.26.5",
+        "@babel/preset-react": "^7.26.3",
+        "@wordpress/babel-preset-default": "^6.5.1",
+        "@wordpress/eslint-plugin": "^22.0.0",
+        "@wordpress/prettier-config": "^4.16.0",
+        "babel-loader": "^8.2.3",
+        "concurrently": "^8.2.2",
+        "cross-env": "^7.0.3",
+        "css-loader": "^6.7.2",
+        "eslint": "^8.56.0",
+        "eslint-plugin-react": "^7.37.4",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^8.0.0",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-sass": "^5.1.0",
+        "gulp-zip": "^5.1.0",
+        "prettier": "npm:wp-prettier@^3.0.3",
+        "sass": "^1.56.1",
+        "sass-loader": "^13.2.0",
+        "style-loader": "^3.3.1",
+        "terser-webpack-plugin": "^5.3.1",
+        "typescript": "^5.7.2",
+        "webpack": "^5.75.0",
+        "webpack-cli": "^4.9.2"
+    },
+    "dependencies": {
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    }
+}

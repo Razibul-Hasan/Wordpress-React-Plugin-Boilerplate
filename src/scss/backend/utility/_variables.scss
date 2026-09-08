@@ -1,0 +1,9 @@
+// Shared tokens for the dashboard. Partials are prefixed with an underscore so
+// gulp's backend_style task does not compile them into standalone files.
+$wpb-primary: #2271b1;
+$wpb-primary-hover: #135e96;
+$wpb-text: #1e1e1e;
+$wpb-muted: #646970;
+$wpb-border: #dcdcde;
+$wpb-surface: #ffffff;
+$wpb-radius: 4px;

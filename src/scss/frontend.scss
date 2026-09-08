@@ -1,0 +1,10 @@
+// Frontend styles. Compiled to assets/css/wpb-frontend.css by `gulp frontend_style`.
+// The gulp task globs `src/**/frontend.scss`, so this file is the single entry point.
+
+.wpb-frontend {
+	display: block;
+
+	&__message {
+		margin: 0 0 12px;
+	}
+}

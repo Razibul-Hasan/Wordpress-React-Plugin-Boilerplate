@@ -1,0 +1,18 @@
+/**
+ * Loaded on every wp-admin screen. Keep this file small - anything specific to
+ * the plugin dashboard belongs in src/scss/backend/ instead.
+ */
+
+#wpb-dashboard-wrap {
+	margin-right: 20px;
+}
+
+#wpb-dashboard-wrap .wpb-loading {
+	padding: 40px 0;
+	color: #646970;
+}
+
+/* Reset WordPress's default page padding for the dashboard screen. */
+.toplevel_page_wpb-dashboard #wpcontent {
+	padding-left: 0;
+}
