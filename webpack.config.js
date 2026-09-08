@@ -1,5 +1,19 @@
 const path = require( 'path' );
 
+// Packages WordPress core already ships. Mapping them here keeps them out of
+// the bundle and makes the plugin use the same React instance as wp.components,
+// which is what stops "invalid hook call" errors. Every key added here needs the
+// matching script handle in Initialization::admin_scripts_callback().
+const externals = {
+	react: 'React',
+	'react-dom': 'ReactDOM',
+	'react-dom/client': 'ReactDOM',
+	'@wordpress/element': [ 'wp', 'element' ],
+	'@wordpress/components': [ 'wp', 'components' ],
+	'@wordpress/i18n': [ 'wp', 'i18n' ],
+	'@wordpress/api-fetch': [ 'wp', 'apiFetch' ],
+};
+
 const config = {
 	mode: 'development',
 	devtool: 'source-map',
@@ -25,6 +39,7 @@ const config = {
 			},
 		],
 	},
+	externals,
 	plugins: [],
 };
 

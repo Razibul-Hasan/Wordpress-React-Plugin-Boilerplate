@@ -43,6 +43,9 @@
         "webpack-cli": "^4.9.2"
     },
     "dependencies": {
+        "@wordpress/components": "^30.6.5",
+        "@wordpress/element": "^6.33.1",
+        "@wordpress/i18n": "^6.6.1",
         "react": "^18.3.1",
         "react-dom": "^18.3.1"
     }

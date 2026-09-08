@@ -96,8 +96,20 @@ class Initialization {
 
 		$user_info = get_userdata( get_current_user_id() );
 
-		wp_enqueue_style( 'wpb-dashboard-style', WPB_URL . 'assets/css/wpb-backend.css', array(), WPB_VER );
-		wp_enqueue_script( 'wpb-dashboard-script', WPB_URL . 'assets/js/wpb.js', array( 'wp-api-fetch' ), WPB_VER, true );
+		// 'wp-components' pulls in core's component styles and, as a dependency,
+		// guarantees they print before the plugin stylesheet can override them.
+		wp_enqueue_style( 'wpb-dashboard-style', WPB_URL . 'assets/css/wpb-backend.css', array( 'wp-components' ), WPB_VER );
+
+		// These handles provide the globals the bundle expects, see the
+		// externals map in webpack.config.js. React comes from core so the
+		// dashboard shares one React instance with wp.components.
+		wp_enqueue_script(
+			'wpb-dashboard-script',
+			WPB_URL . 'assets/js/wpb.js',
+			array( 'react', 'react-dom', 'wp-element', 'wp-components', 'wp-i18n', 'wp-api-fetch' ),
+			WPB_VER,
+			true
+		);
 		wp_enqueue_media();
 
 		wp_localize_script(
